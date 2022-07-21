@@ -15,7 +15,7 @@
             <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username"><br>
             <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email"><br>
             <input type="password" name="password" class="form-control" id="password" placeholder="Enter password"> <br>
-            <input type="submit" value="Submit" class="form-control" id="submit">
+            <input type="submit" value="Sign Up" class="form-control" id="signup">
         </form>
     </div>
 
@@ -53,25 +53,25 @@
         const database = getDatabase(app);
         const auth = getAuth();
 
-        submit.getEventListener('click',(e) => {
+        signup.addEventListener('click',(e) => {
 
             var username = document.getElementById('username');
             var email = document.getElementById('email');
             var password = document.getElementById('password');
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                alert('user created!');
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                alert(errorMessage);
-                // ..
-            });
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    alert('user created!')
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                    // ..
+                });
         })
 
       </script>
